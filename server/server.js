@@ -3,6 +3,20 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { Resend } from "resend";
 import rateLimit from "express-rate-limit";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const clientDist = path.join(__dirname, "../client/dist");
+app.use(express.static(clientDist));
+
+app.get("*", (req, res) => {
+  if (req.path.startsWith("/api")) return res.status(404).send("Not found");
+  res.sendFile(path.join(clientDist, "index.html"));
+});
+
 console.log("Booting API from:", import.meta.url);
 
 dotenv.config();
