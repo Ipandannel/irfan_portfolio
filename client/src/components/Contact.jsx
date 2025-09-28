@@ -1,7 +1,8 @@
 // client/src/components/Contact.jsx
 import { useState } from "react";
 import confetti from "canvas-confetti";
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5174";
+const API_BASE = import.meta.env.VITE_API_BASE ?? "";   // empty means "same origin"
+const url = `${API_BASE.replace(/\/$/, "")}/api/contact`;
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -18,7 +19,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch(`${API_BASE}/api/contact`, {
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -93,3 +94,4 @@ export default function Contact() {
     </section>
   );
 }
+
