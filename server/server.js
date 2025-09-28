@@ -9,6 +9,12 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+dotenv.config();
+
+const app = express(); // ✅ Define app first
+app.use(cors());
+app.use(express.json());
+
 const clientDist = path.join(__dirname, "../client/dist");
 app.use(express.static(clientDist));
 
@@ -19,12 +25,6 @@ app.get("*", (req, res) => {
 
 console.log("Booting API from:", import.meta.url);
 
-dotenv.config();
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // 10 requests / 10 minutes per IP (tweak as needed)
@@ -34,6 +34,7 @@ const contactLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
+
 
 app.post("/api/contact", contactLimiter, async (req, res) => {
   try {
@@ -113,3 +114,4 @@ app.get("/api/health", (req, res) =>
   res.json({ ok: true, time: new Date().toISOString() })
 );
 app.listen(PORT, () => console.log(`API listening on http://localhost:${PORT}`));
+
