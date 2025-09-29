@@ -55,7 +55,7 @@ const projects = [
       "Dockerized Flask + React pipeline with SQL analytics to ingest, score, and rank films. Built for quick insights.",
     img: "/film-analytics.jpeg",       // <— put your image here
     tech: ["Docker", "Flask", "React", "PostgreSQL"],
-    repo: "https://github.com/Ipandannel/predictive_film, // <— GitHub URL
+    repo: "https://github.com/Ipandannel/predictive_film", // <— GitHub URL
     live: null
   },
   {
@@ -90,6 +90,7 @@ export default function Projects() {
     </section>
   );
 }
+
 
 
 
