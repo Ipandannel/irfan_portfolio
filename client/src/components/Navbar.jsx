@@ -6,7 +6,12 @@ export default function Navbar() {
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+
+        {/* Special contact button */}
+        <a href="#contact" className="contactBtn" aria-label="Contact">
+          <span className="phoneEmoji" aria-hidden="true">📞</span>
+          <span>Contact</span>
+        </a>
       </div>
     </nav>
   );
