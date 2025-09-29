@@ -138,9 +138,20 @@ button:hover { filter: brightness(1.04); }
 .dot:hover { transform: scale(1.15); }
 .dot.active { background: var(--brand); }
 @media (max-width: 820px){ .dotnav{ right: 10px; } }
-.parallaxWrap {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+/* put the parallax layers *behind* all content */
+.parallaxWrap { 
+  position: fixed; inset: 0;
+  z-index: -1;           /* was 0 */
+  pointer-events: none; 
+  overflow: hidden;
 }
+
+/* ensure your real content sits above */
+main, .section, .card, .navbar { 
+  position: relative; 
+  z-index: 1;
+}
+
 .parallaxLayer {
   position: absolute; inset: -10%;
   background: radial-gradient(1200px 600px at 20% 20%, #102131 0%, transparent 60%),
@@ -193,3 +204,4 @@ button:hover { filter: brightness(1.04); }
     margin-top: 20px;
   }
 }
+
