@@ -205,3 +205,12 @@ main, .section, .card, .navbar {
   }
 }
 
+/* mobile: disable the aggressive blend layer */
+@media (max-width: 900px) {
+  .parallaxLayer.layer2 {
+    mix-blend-mode: normal;  /* was screen */
+    opacity: 0.12;           /* softer */
+    filter: none;            /* remove extra blur if you want */
+  }
+}
+
