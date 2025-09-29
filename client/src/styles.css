@@ -10,11 +10,20 @@ html, body, #root { height: 100%; }
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
+  background: linear-gradient(-45deg, #0d1b2a, #0b0f14, #112d4e, #0b0f14);
+  background-size: 400% 400%;
+  animation: bgMove 15s ease infinite;
+  /* fallback for very old browsers */
+  background-color: #0b0f14;
   color: var(--fg);
   scroll-behavior: smooth;
 }
 
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* Snap like a slide deck */
 main {
   height: 100dvh;
@@ -66,10 +75,10 @@ main {
   position: fixed; top: 0; left: 0; right: 0;
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 24px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10x);
   max-height: 72px;                 /* keep it from expanding */
-  background: color-mix(in oklab, #0b0f14 85%, transparent);
-  border-bottom: 1px solid color-mix(in oklab, var(--brand) 20%, transparent);
+  background: rgba(11, 15, 20, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 10;
 }
 .brand { font-weight: 700; letter-spacing: .3px; }
@@ -85,9 +94,10 @@ main {
 .card {
   width: min(950px, 92vw);
   padding: 28px;
-  border: 1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  background: linear-gradient(180deg, #0b0f14, #0c1016 60%, #0b0f14);
+  background: rgba(15, 20, 27, 0.9); /* slightly transparent */
+  backdrop-filter: blur(6px);
   box-shadow: 0 6px 24px rgba(0,0,0,.3);
 }
 
@@ -254,6 +264,7 @@ main, .section, .card, .navbar {
 @media (max-width: 640px) {
   .contactBtn { padding: 8px 12px; border-radius: 10px; }
 }
+
 
 
 
