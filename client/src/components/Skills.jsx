@@ -12,7 +12,7 @@ const icons = {
   SQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   NodeJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  Laravel: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+  Laravel: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
   Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
   Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
 };
@@ -53,3 +53,4 @@ export default function Skills() {
     </section>
   );
 }
+
