@@ -40,10 +40,11 @@ export default function Blog() {
                 style={{ overflow: "hidden" }}
               >
                 <p>
-                  Running rewired how I work. Marathon training is basically an agile roadmap:
-                  set a realistic plan, show up, iterate, recover, and keep moving. The same mindset
+                  Running changed how I work. Marathon training is basically an agile roadmap:
+                  set a realistic plan, show up, iterate, recover, and keep moving. Do it even though you're tired, 
+                  do it unmotivated, do it sad, do it for a better version of you. The same mindset
                   drives my engineering: ship small, measure, learn, and scale. Long runs taught me to
-                  love the boring parts — the quiet repetition that turns weaknesses into strengths.
+                  love the boring parts, the quiet repetition that turns weaknesses into strengths.
                 </p>
                 <p>
                   That discipline shows up in my code. I care about clean interfaces, well-named
@@ -53,7 +54,9 @@ export default function Blog() {
                 </p>
                 <p>
                   If there’s one takeaway from my journey, it’s this: staying the same guarantees the
-                  same result. Growth needs effort and time. Just like training cycles, software gets
+                  same result. Often people get stuck in their 5k even though they are capable and destined for so much more,
+                  they may actually be capable of even an Ironman, but comfort takes over.
+                  Growth needs effort and time. Just like training cycles, software gets
                   better through continuous improvement — tests, refactors, and thoughtful iteration.
                 </p>
                 <p>
@@ -100,3 +103,4 @@ export default function Blog() {
     </section>
   );
 }
+
