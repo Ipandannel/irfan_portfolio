@@ -67,7 +67,8 @@ main {
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 24px;
   backdrop-filter: blur(8px);
-  background: color-mix(in oklab, #0b0f14 70%, transparent);
+  max-height: 72px;                 /* keep it from expanding */
+  background: color-mix(in oklab, #0b0f14 85%, transparent);
   border-bottom: 1px solid color-mix(in oklab, var(--brand) 20%, transparent);
   z-index: 10;
 }
@@ -213,4 +214,5 @@ main, .section, .card, .navbar {
     filter: none;            /* remove extra blur if you want */
   }
 }
+
 
