@@ -44,7 +44,7 @@ const projects = [
     title: "Rehearse AI — NLP + Emotion Feedback",
     tagline:
       "Mobile prototype that guides pacing and affect using local ML (CREMA-D). Focus: coaching feedback & clear UX.",
-    img: "/rehearseai.jpg",     
+    img: "/rehearseai.jpeg",     
     tech: ["Flutter", "TensorFlow Lite", "Python", "Librosa"],
     repo: "Stay Tuned!",   // <— GitHub URL
     live: null                                             // <— add demo URL if you have one
@@ -53,7 +53,7 @@ const projects = [
     title: "Predictive Film Selection & Analytics",
     tagline:
       "Dockerized Flask + React pipeline with SQL analytics to ingest, score, and rank films. Built for quick insights.",
-    img: "/film-analytics.jpg",       // <— put your image here
+    img: "/film-analytics.jpeg",       // <— put your image here
     tech: ["Docker", "Flask", "React", "PostgreSQL"],
     repo: "https://github.com/Ipandannel/COMP0022Coursework.git", // <— GitHub URL
     live: null
@@ -62,7 +62,7 @@ const projects = [
     title: "Poisson Image Editing",
     tagline:
       "Gradient-domain ‘seamless cloning’ (C++/Python). Paste objects into new scenes while preserving local gradients.",
-    img: "/poisson.jpg",              // <— put your image here
+    img: "/poisson.jpeg",              // <— put your image here
     tech: ["C++", "Python", "OpenCV"],
     repo: "https://github.com/Ipandannel/poisson-editing", // <— GitHub URL
     live: null
@@ -90,4 +90,5 @@ export default function Projects() {
     </section>
   );
 }
+
 
