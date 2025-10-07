@@ -35,7 +35,45 @@ const contactLimiter = rateLimit({
   legacyHeaders: false,
 });
 
+const visitLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  max: 30,                   // at most 30 visit emails per IP per 10min
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
+app.post("/api/visit", visitLimiter, async (req, res) => {
+  try {
+    const { name, at, path: pagePath } = req.body || {};
+    const ts = at || new Date().toISOString();
+    const ip = req.headers["x-forwarded-for"]?.split(",")?.[0].trim() || req.socket.remoteAddress;
+    const ua = req.get("User-Agent") || "";
+    const ref = req.get("Referer") || req.get("Referrer") || "";
+
+    // Build a simple email
+    await resend.emails.send({
+      from: process.env.CONTACT_FROM,       // e.g. onboarding@resend.dev (testing) or verified domain
+      to: process.env.CONTACT_TO,           // your inbox
+      subject: `Site visit${name ? ` — ${name}` : ""} @ ${ts}`,
+      html: `
+        <div style="font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Arial;">
+          <h2 style="margin:0 0 8px;">New website visit</h2>
+          <p><b>Time:</b> ${ts}</p>
+          <p><b>Name (optional):</b> ${name ? String(name).slice(0,120) : "—"}</p>
+          <p><b>Page:</b> ${pagePath || "unknown"}</p>
+          <p><b>Referrer:</b> ${ref || "—"}</p>
+          <p><b>User-Agent:</b> ${ua}</p>
+          <p style="color:#6b7280;"><i>Note:</i> IP is collected server-side; store responsibly.</p>
+        </div>
+      `
+    });
+
+    res.json({ ok: true });
+  } catch (e) {
+    console.error("VISIT EMAIL ERROR:", e);
+    res.status(500).json({ error: "Failed to send visit email" });
+  }
+});
 app.post("/api/contact", contactLimiter, async (req, res) => {
   try {
     const { name, email, message, subject, phone, website } = req.body || {};
@@ -114,4 +152,5 @@ app.get("/api/health", (req, res) =>
   res.json({ ok: true, time: new Date().toISOString() })
 );
 app.listen(PORT, () => console.log(`API listening on http://localhost:${PORT}`));
+
 
