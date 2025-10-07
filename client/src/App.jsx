@@ -6,6 +6,8 @@ import Contact from "./components/Contact.jsx";
 import Blog from "./components/Blog.jsx";
 import ScrollDots from "./components/ScrollDots.jsx";
 import ParallaxBackground from "./components/ParallaxBackground.jsx";
+import VisitTracker from "./components/VisitTracker.jsx";
+
 export default function App() {
   return (
     <>
@@ -23,4 +25,5 @@ export default function App() {
     </>
   );
 }
+
 
