@@ -56,6 +56,56 @@ main {
   display: block;
   background: #0b0f14;
 }
+/* VisitTracker modal */
+.vt-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+}
+
+.vt-modal {
+  position: fixed; inset: 0;
+  margin: auto;
+  width: min(92vw, 520px);
+  background: rgba(15, 20, 27, 0.96);
+  border: 1px solid color-mix(in oklab, var(--brand) 30%, transparent);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.55);
+  padding: 18px 18px 16px;
+  z-index: 9999;
+}
+
+.vt-title {
+  margin: 2px 0 6px;
+}
+
+.vt-sub {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.vt-form { display: grid; gap: 12px; }
+
+.vt-input {
+  font: inherit; color: var(--fg);
+  background: #0f141b;
+  border: 1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+}
+.vt-input:focus {
+  border-color: color-mix(in oklab, var(--brand) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 25%, transparent);
+}
+
+.vt-actions {
+  display: flex; justify-content: flex-end; gap: 10px;
+}
+
+/* Reuse your existing .btn and .btn.ghost styles */
+
 .motto {
   font-size: 0.9rem;   /* smaller than default */
   color: var(--brand); /* optional highlight */
@@ -341,6 +391,7 @@ main, .section, .card, .navbar {
   border: 1px solid color-mix(in oklab, var(--brand) 35%, transparent);
 }
 .btn:hover { filter: brightness(1.06); }
+
 
 
 
