@@ -22,7 +22,7 @@ export default function Blog() {
 
           {/* Teaser always visible */}
           <p style={{ marginTop: 12 }}>
-            In my second year at university, life swerved hard. Something happened that made me feel stuck, unfocused, and
+            Something happened that made me feel stuck, unfocused, and
             honestly not myself. I laced up, started to run to clear my head and could barely get through 5 km.
             But every run taught me the same lesson: progress isn’t loud; it’s consistent. Step by step,
             I moved from 5Ks to a full marathon in <b>Melaka</b>, and later <b>Manchester</b>.
@@ -103,4 +103,5 @@ export default function Blog() {
     </section>
   );
 }
+
 
