@@ -9,6 +9,7 @@ import ParallaxBackground from "./components/ParallaxBackground.jsx";
 export default function App() {
   return (
     <>
+      <VisitTracker />
       <Navbar />
       <ParallaxBackground/>
       <ScrollDots />
@@ -22,3 +23,4 @@ export default function App() {
     </>
   );
 }
+
